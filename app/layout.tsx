@@ -1,25 +1,25 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Urbanist } from 'next/font/google'
-import {ClerkProvider} from '@clerk/nextjs'
-const font = Urbanist({ subsets: ['latin'] })
+import type { Metadata } from 'next';
+import { Urbanist } from 'next/font/google';
+import { ClerkProvider } from '@clerk/nextjs';
+import { cn } from '@/lib/utils';
+const font = Urbanist({ subsets: ['latin'] });
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'AI copilot',
-  description: 'AI Platform',
-}
+  title: 'brAIn',
+  description: 'AI multi purpouse platform',
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={font.className}>
-          {children}</body>
+      <html lang='en'>
+        <body className={cn('bg-neutral-200', font.className)}>{children}</body>
       </html>
     </ClerkProvider>
-  )
+  );
 }
